@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:usercontrols="clr-namespace:Contatos.UserControls"
+             x:Class="Contatos.Pages.CameraPage">
+    <ContentPage.Content>
+        <usercontrols:FormularioUc Titulo="Teste">
+            <usercontrols:FormularioUc.Cabecalho>
+                <Image Source="ic_close.png"
+                           Margin="16, 0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tprVoltar"
+                                          Tapped="tprVoltar_Tapped"
+                                          NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </usercontrols:FormularioUc.Cabecalho>
+
+            <usercontrols:FormularioUc.Conteudo>
+                <StackLayout x:Name="slConteudo"
+                             VerticalOptions="FillAndExpand"
+                             HorizontalOptions="FillAndExpand"
+                             Margin="16">
+                    <Image x:Name="imgFoto"                           
+                           Aspect="AspectFill"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand"/>
+                </StackLayout>
+            </usercontrols:FormularioUc.Conteudo>
+
+            <usercontrols:FormularioUc.Rodape>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="CenterAndExpand"
+                             Padding="8">
+                    <Image Source="ic_camera.png"
+                           Margin="16, 0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="tprCamera"
+                                          Tapped="tprCamera_Tapped"
+                                          NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="ic_folder.png"
+                           Margin="16, 0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="tprAlbum"
+                                          Tapped="tprAlbum_Tapped"
+                                          NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="ic_check.png"
+                           Margin="16, 0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="tprTrocar"
+                                          Tapped="tprTrocar_Tapped"
+                                          NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </usercontrols:FormularioUc.Rodape>
+        </usercontrols:FormularioUc>
+    </ContentPage.Content>
+</ContentPage>

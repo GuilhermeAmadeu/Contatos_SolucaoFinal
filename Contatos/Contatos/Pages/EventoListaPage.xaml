@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contatos.Pages.EventoListaPage">
+    
+    <!-- Definir a barra de ferramentas -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="tbiNovo"
+                     Order="Primary"
+                     Text="Novo"
+                     Icon="ic_add_circle.png"
+                     Priority="0"
+                     Clicked="tbiNovo_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <Label Text="Lista de Eventos" />
+
+                <ListView x:Name="lvEvento"
+                          ItemTapped="lvEvento_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Nome}"/>
+                                    <Label Text="{Binding Email}"/>
+                                    <Label Text="{Binding Telefone}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

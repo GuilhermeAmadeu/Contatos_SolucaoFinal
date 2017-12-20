@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contatos.Pages.AnotacaoListaPage">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="tbiNovo"
+                     Order="Primary"
+                     Priority="0"
+                     Text="Novo"
+                     Icon="ic_add_circle.png"
+                     Clicked="tbiNovo_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <Label Text="Lista de Anotações" />
+
+                <SearchBar x:Name="txtPesquisa"
+                           Placeholder="Digite o conteúdo"
+                           Text="{Binding ConteudoPesquisa}"
+                           SearchButtonPressed="txtPesquisa_SearchButtonPressed"/>
+
+                <ListView x:Name="lvLista"
+                          HasUnevenRows="True"
+                          ItemsSource="{Binding Lista}"
+                          ItemTapped="lvLista_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Responsavel}"/>
+                                    <Label Text="{Binding Descricao}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

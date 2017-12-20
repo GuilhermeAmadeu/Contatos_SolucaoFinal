@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:usercontrols="clr-namespace:Contatos.UserControls"
+             x:Class="Contatos.Pages.PessoaEdicaoPage">
+
+    <!-- Definir a barra de ferramentas -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="tbiExcluir"
+                     Order="Primary"
+                     Text="Excluir"
+                     Icon="ic_close.png"
+                     Priority="0"
+                     Clicked="tbiExcluir_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <usercontrols:FormularioUc x:Name="ucConteudo"
+                                   Titulo="Edição de Pessoas">
+            <!-- Definir o cabeçalho -->
+            <usercontrols:FormularioUc.Cabecalho>
+                <Label Text="Edição de Pessoas" />
+            </usercontrols:FormularioUc.Cabecalho>
+
+            <!-- Definir o conteúdo -->
+            <usercontrols:FormularioUc.Conteudo>
+                <!--Adicionar controle para fazer o scroll na tela -->
+                <ScrollView IsClippedToBounds="True">
+                    <!-- Grid para posicionar linhas e colunas -->
+                    <Grid x:Name="gdConteudo" Padding="16">
+                        <!-- Definir as linhas -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <!-- Definir as colunas -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Definir os controles -->
+                        <Label x:Name="lblNome"
+                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                               Text="Nome"/>
+                        <Entry x:Name="txtNome" 
+                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                               Placeholder="Digite o nome"
+                               Text="{Binding Nome}"/>
+
+                        <Label x:Name="lblEmail" 
+                               Grid.Row="2" Grid.Column="0"
+                               Text="E-mail"/>
+                        <Entry x:Name="txtEmail" 
+                               Grid.Row="3" Grid.Column="0"
+                               Placeholder="Digite o e-mail"
+                               Text="{Binding Email}"/>
+
+                        <Label x:Name="lblTelefone" 
+                               Grid.Row="2" Grid.Column="1"
+                               Text="Telefone"/>
+                        <Entry x:Name="txtTelefone" 
+                               Grid.Row="3" Grid.Column="1"
+                               Placeholder="Digite o telefone"
+                               Text="{Binding Telefone}"/>
+
+                        <Label x:Name="lblObservacao" 
+                               Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                               Text="Observação"/>
+                        <Editor x:Name="txtObservacao" 
+                                Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                                HeightRequest="80"
+                                Text="{Binding Observacao}"/>
+
+                        <Label x:Name="lblDataNascimento"
+                               Grid.Row="6" Grid.Column="0"
+                               Text="Data de Nascimento"/>
+                        <DatePicker x:Name="dpDataNascimento"
+                                    Grid.Row="7" Grid.Column="0"
+                                    Date="{Binding DataNascimento}"/>
+
+                        <Label x:Name="lblCep"
+                               Grid.Row="6" Grid.Column="1"
+                               Text="CEP"/>
+                        <Entry x:Name="txtCep"
+                               Grid.Row="7" Grid.Column="1"
+                               Text="{Binding Cep}"
+                               Unfocused="txtCep_Unfocused"/>
+
+                        <Label x:Name="lblEndereco"
+                               Grid.Row="8" Grid.Column="0"
+                               Text="Endereço"/>
+                        <Entry x:Name="txtEndereco"
+                               Grid.Row="9" Grid.Column="0"
+                               Text="{Binding Endereco}"/>
+
+                        <Label x:Name="lblNumero"
+                               Grid.Row="8" Grid.Column="1"
+                               Text="Número"/>
+                        <Entry x:Name="txtNumero"
+                               Grid.Row="9" Grid.Column="1"
+                               Text="{Binding Numero}"/>
+
+                        <Label x:Name="lblBairro"
+                               Grid.Row="10" Grid.Column="0"
+                               Text="Bairro"/>
+                        <Entry x:Name="txtBairro"
+                               Grid.Row="11" Grid.Column="0"
+                               Text="{Binding Bairro}"/>
+
+                        <Label x:Name="lblCidade"
+                               Grid.Row="10" Grid.Column="1"
+                               Text="Cidade"/>
+                        <Entry x:Name="txtCidade"
+                               Grid.Row="11" Grid.Column="1"
+                               Text="{Binding Cidade}"/>
+
+                        <Label x:Name="lblUf"
+                               Grid.Row="12" Grid.Column="0"
+                               Text="UF"/>
+                        <Entry x:Name="txtUf"
+                               Grid.Row="13" Grid.Column="0"
+                               Text="{Binding Uf}"/>
+
+                        <Image x:Name="imgFoto"
+                               Grid.Row="14" Grid.Column="0"
+                               HeightRequest="64"
+                               WidthRequest="64"
+                               Aspect="AspectFill"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"
+                               Margin="5"/>
+                        <Button x:Name="btnFoto"
+                                Grid.Row="15" Grid.Column="0"
+                                Text="Alterar foto"
+                                Clicked="btnFoto_Clicked"/>
+                    </Grid>
+                </ScrollView>
+            </usercontrols:FormularioUc.Conteudo>
+
+            <!-- Definir o rodapé -->
+            <usercontrols:FormularioUc.Rodape>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="CenterAndExpand"
+                             Margin="0"
+                             Padding="8">
+                    <Button x:Name="btnSalvar" 
+                            Text="Salvar"
+                            Clicked="btnSalvar_Clicked"/>
+
+                    <Button x:Name="btnCancelar"
+                            Text="Cancelar"
+                            Clicked="btnCancelar_Clicked"/>
+                </StackLayout>
+            </usercontrols:FormularioUc.Rodape>
+        </usercontrols:FormularioUc>
+    </ContentPage.Content>
+</ContentPage>

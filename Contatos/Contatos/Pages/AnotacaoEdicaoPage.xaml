@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:usercontrols="clr-namespace:Contatos.UserControls"
+             x:Class="Contatos.Pages.AnotacaoEdicaoPage">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="tbiExcluir"
+                     Order="Primary"
+                     Priority="0"
+                     Text="Excluir"
+                     Icon="ic_close.png"
+                     Clicked="tbiExcluir_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <usercontrols:FormularioUc x:Name="ucConteudo"
+                                   Titulo="Edição de Pessoas">
+            
+            <usercontrols:FormularioUc.Cabecalho>
+            </usercontrols:FormularioUc.Cabecalho>
+
+            <usercontrols:FormularioUc.Conteudo>
+                <ScrollView IsClippedToBounds="True">
+                    <Grid Padding="16">
+                        
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Entry x:Name="txtResponsavel" 
+                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                               Placeholder="Digite o nome do responsável"
+                               Text="{Binding Responsavel}"/>
+
+                        <Entry x:Name="txtDescricao" 
+                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                               Placeholder="Digite a descrição"
+                               Text="{Binding Descricao}"/>
+
+                    </Grid>
+                </ScrollView>
+            </usercontrols:FormularioUc.Conteudo>
+
+            <usercontrols:FormularioUc.Rodape>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="CenterAndExpand"
+                             Margin="0"
+                             Padding="8">
+                    <Button x:Name="btnSalvar" 
+                            Text="Salvar"
+                            Clicked="btnSalvar_Clicked"/>
+
+                    <Button x:Name="btnCancelar"
+                            Text="Cancelar"
+                            Clicked="btnCancelar_Clicked"/>
+                </StackLayout>
+            </usercontrols:FormularioUc.Rodape>
+        </usercontrols:FormularioUc>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contatos.UserControls.PainelUc">
+  <ContentView.Content>
+        <Frame HasShadow="True"
+               BackgroundColor="{DynamicResource corClara}"
+               IsClippedToBounds="True">
+            <Frame.OutlineColor>
+                <OnPlatform x:TypeArguments="Color"
+                             Android="Black"
+                             iOS="Green"
+                             WinPhone="Gray"/>
+            </Frame.OutlineColor>
+            <Frame.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                             Android="8"
+                             iOS="8"
+                             WinPhone="10"/>
+            </Frame.Margin>
+            <ContentView x:Name="cvConteudo"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand" />
+
+        </Frame>
+  </ContentView.Content>
+</ContentView>

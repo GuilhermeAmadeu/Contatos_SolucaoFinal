@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contatos.Pages.MenuPage"
+             BackgroundColor="{DynamicResource corPadrao}">
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />                
+            </Grid.ColumnDefinitions>
+            <Image x:Name="imgFoto"
+                   Grid.Row="0" Grid.Column="0"
+                   HeightRequest="64"
+                   WidthRequest="64"
+                   Aspect="AspectFill"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"
+                   Margin="5" />
+            <StackLayout Grid.Row="0" Grid.Column="1"
+                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         Orientation="Vertical"
+                         Spacing="0">
+                <Label x:Name="lblNome"
+                       HorizontalOptions="FillAndExpand"
+                       Style="{DynamicResource tituloMenuStyle}"/>
+                <Label x:Name="lblEmail"
+                       HorizontalOptions="FillAndExpand"
+                       Style="{DynamicResource subtituloMenuStyle}"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tgrEditar"
+                                          Tapped="tgrEditar_Tapped"
+                                          NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                         Orientation="Horizontal"
+                         BackgroundColor="{DynamicResource corBotao}">
+                <Image Source="home.png" />
+                <Label Text="HOME" 
+                       HorizontalOptions="FillAndExpand"
+                       Style="{DynamicResource tituloMenuStyle }"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tgrVoltar"
+                                          Tapped="tgrVoltar_Tapped"
+                                          NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+                
+            </StackLayout>
+
+            <ListView x:Name="lvMenu"
+                      Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="StartAndExpand"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         Spacing="8"
+                                         Padding="5,0,5,0">
+                                <Label Text="{Binding Titulo }" 
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="Center" 
+                                       Style="{DynamicResource textoMenuStyle}"/>
+                                <Image Source="{Binding Imagem }" 
+                                       HeightRequest="32"
+                                       WidthRequest="32"
+                                       Aspect="AspectFill" />
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
